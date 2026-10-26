@@ -35,6 +35,11 @@ public class CatalogActivity extends AppCompatActivity {
             return;
         }
 
+        binding.toolbar.setOnMenuItemClickListener(item -> {
+            startActivity(new Intent(this, ProfileActivity.class));
+            return true;
+        });
+
         // row = {id, title, author, genre, status}
         adapter = new GenericAdapter<>(new ArrayList<>(), (row, book) -> {
             row.tvTitle.setText(book[1]);

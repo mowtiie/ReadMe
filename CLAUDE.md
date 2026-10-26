@@ -10,7 +10,7 @@ This is a **simulation**. There is no backend, no payment gateway, no email/SMS,
 
 Source of requirements: the spec the user provides (STI College Balayan Codefest Training AY 2023-2024, Problem #3: Library App; the app itself is named ReadMe). Read it fully before building. Where the spec is vague, pick the simplest simulated behavior and note it here.
 
-Status: not started. Last verified build: not run yet.
+Status: build steps 1-5 done; the core flow was run on the Pixel_10 emulator (login, catalog, details, checkout, return, edit, logout). Last verified build: `./gradlew assembleDebug` succeeded.
 
 ## Prime directive: build the fastest way possible
 

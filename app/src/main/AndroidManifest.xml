@@ -32,6 +32,9 @@
         <activity
             android:name=".activities.BookDetailActivity"
             android:exported="false" />
+        <activity
+            android:name=".activities.ProfileActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
