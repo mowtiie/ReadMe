@@ -17,6 +17,7 @@
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="ReadMe"
             android:textAppearance="?attr/textAppearanceDisplaySmall"
             android:textColor="?attr/colorPrimary" />
@@ -58,19 +59,19 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnForgot"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="Forgot password?" />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Log in" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnForgot"
-            style="@style/Widget.Material3.Button.TextButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Forgot password?" />
+            android:text="Log in" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSignUp"
