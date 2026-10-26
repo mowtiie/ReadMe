@@ -110,7 +110,9 @@ Log in as the Demo Member and open a book to check it out, then return it from D
 ./gradlew assembleRelease
 ```
 
-Release signing is not configured in the project yet. Keystore files and `keystore.properties` must never be committed.
+Release builds are minified and shrunk. To sign them, copy `keystore.properties.example` to `keystore.properties` in the project root and fill in your keystore path, alias and passwords. Without that file `assembleRelease` still builds, but the APK is unsigned (`app-release-unsigned.apk`). The signed APK is created at `app/build/outputs/apk/release/`.
+
+Keystore files and `keystore.properties` are git-ignored and must never be committed.
 
 ## Verification
 
