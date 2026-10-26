@@ -184,4 +184,4 @@ Good signature from "Mowtiie <mowtiie.dev@gmail.com>"
 
 ## License
 
-ReadMe is released under the [MIT License](LICENSE). Copyright (c) 2026 Vrixzandro Eliponga.
+ReadMe is released under the [MIT License](LICENSE).
