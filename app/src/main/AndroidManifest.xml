@@ -29,6 +29,9 @@
         <activity
             android:name=".activities.CatalogActivity"
             android:exported="false" />
+        <activity
+            android:name=".activities.BookDetailActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
