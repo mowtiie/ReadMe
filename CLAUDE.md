@@ -113,6 +113,7 @@ Navigation is `startActivity(new Intent(...))` with `putExtra`. After a flow fin
 
 **3. Search**
 - A `TextInputLayout` search field above the list. A `TextWatcher` re-queries on every keystroke with `LIKE` on title, author and genre (case-insensitive) and refreshes the list. No search button.
+- A single-select filter `ChipGroup` under the field sets what the search focuses on: **All** (default), **Title**, **Author** or **Genre**. Changing the chip re-runs the query. The field's helper text shows the current focus.
 - No matches shows the empty view.
 
 **4. Book details**

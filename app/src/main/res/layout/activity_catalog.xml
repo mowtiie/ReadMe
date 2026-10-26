@@ -34,6 +34,44 @@
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        app:selectionRequired="true"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipAll"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="All" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipTitle"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipAuthor"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Author" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipGenre"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Genre" />
+    </com.google.android.material.chip.ChipGroup>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

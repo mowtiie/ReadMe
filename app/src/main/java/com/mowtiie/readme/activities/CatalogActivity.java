@@ -10,6 +10,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.mowtiie.readme.R;
 import com.mowtiie.readme.adapters.GenericAdapter;
 import com.mowtiie.readme.data.Data;
 import com.mowtiie.readme.databinding.ActivityCatalogBinding;
@@ -52,6 +53,8 @@ public class CatalogActivity extends AppCompatActivity {
         binding.viewEmpty.tvEmptyTitle.setText("No books found");
         binding.viewEmpty.tvEmptyMessage.setText("Try a different title, author or genre.");
 
+        binding.chipGroup.setOnCheckedStateChangeListener((group, checkedIds) -> loadBooks());
+
         binding.etSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -75,7 +78,13 @@ public class CatalogActivity extends AppCompatActivity {
     }
 
     private void loadBooks() {
-        ArrayList<String[]> books = Data.searchBooks(this, binding.etSearch.getText().toString());
+        int chip = binding.chipGroup.getCheckedChipId();
+        String filter = Data.SEARCH_ALL;
+        if (chip == R.id.chipTitle) filter = Data.SEARCH_TITLE;
+        else if (chip == R.id.chipAuthor) filter = Data.SEARCH_AUTHOR;
+        else if (chip == R.id.chipGenre) filter = Data.SEARCH_GENRE;
+        binding.tilSearch.setHelperText(filter.equals(Data.SEARCH_ALL) ? "Title, author or genre" : "Searching by " + filter);
+        ArrayList<String[]> books = Data.searchBooks(this, binding.etSearch.getText().toString(), filter);
         adapter.setItems(books);
         binding.viewEmpty.getRoot().setVisibility(books.isEmpty() ? View.VISIBLE : View.GONE);
     }

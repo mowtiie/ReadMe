@@ -14,6 +14,11 @@ public class Data {
 
     public static final String STATUS_AVAILABLE = "AVAILABLE";
     public static final String STATUS_BORROWED = "BORROWED";
+    // Search focus: ALL or the books column to search
+    public static final String SEARCH_ALL = "ALL";
+    public static final String SEARCH_TITLE = "title";
+    public static final String SEARCH_AUTHOR = "author";
+    public static final String SEARCH_GENRE = "genre";
     public static final String DATE_PATTERN = "dd MMM yyyy";
     public static final int LOAN_DAYS = 14;
 
@@ -77,12 +82,19 @@ public class Data {
     }
 
     // Rows of {id, title, author, genre, status}, sorted by title
-    public static ArrayList<String[]> searchBooks(Context context, String query) {
+    public static ArrayList<String[]> searchBooks(Context context, String query, String filter) {
         String like = "%" + query.trim().toLowerCase() + "%";
+        String where;
+        String[] args;
+        if (filter.equals(SEARCH_ALL)) {
+            where = "LOWER(title) LIKE ? OR LOWER(author) LIKE ? OR LOWER(genre) LIKE ?";
+            args = new String[]{like, like, like};
+        } else {
+            where = "LOWER(" + filter + ") LIKE ?";
+            args = new String[]{like};
+        }
         Cursor cursor = db(context).rawQuery("SELECT id, title, author, genre, status FROM books"
-                        + " WHERE LOWER(title) LIKE ? OR LOWER(author) LIKE ? OR LOWER(genre) LIKE ?"
-                        + " ORDER BY title COLLATE NOCASE",
-                new String[]{like, like, like});
+                + " WHERE " + where + " ORDER BY title COLLATE NOCASE", args);
         ArrayList<String[]> rows = new ArrayList<>();
         while (cursor.moveToNext()) {
             rows.add(new String[]{cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4)});

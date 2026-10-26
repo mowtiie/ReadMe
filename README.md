@@ -27,7 +27,7 @@ ReadMe is a practice project built in preparation for the Tagisan ng Talino 2026
 
 **Search**
 - A search field above the list re-queries on every keystroke, with no search button
-- Matches title, author and genre, ignoring case. No matches shows an empty view
+- Filter chips under the field choose what to search: All (default), Title, Author or Genre. Matching ignores case, and no matches shows an empty view
 
 **Book details**
 - Title, author, genre, summary, publication date and availability
